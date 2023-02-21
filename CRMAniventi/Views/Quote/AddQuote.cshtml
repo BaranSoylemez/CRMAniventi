@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.Quote
+
+@{
+    ViewBag.Title = "AddQuote";
+    Layout = "~/Views/Shared/_AniventiLayout.cshtml";
+}
+
+<h3 class="bg-black bg-secondary">Yeni Teklif Hazırla</h3>
+
+@using (Html.BeginForm("AddQuote", "Quote", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.Label("Proje ID")
+                    @Html.TextBoxFor(x => x.Project.ProjectID, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Teklifi Hazırlayan")
+                    @Html.TextBoxFor(x => x.Project.UserID, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Müşteri")
+                    @Html.TextBoxFor(x => x.Project.CustomerID, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Tutar Girin")
+                    @Html.TextBoxFor(x => x.QuoteCost, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Para Birimi Girin")
+                    @Html.TextBoxFor(x => x.QuoteCurrency, new { @class = "form-control" })
+                    <br />
+                    @Html.Label("Tarih Girin")
+                    @Html.TextBoxFor(x => x.QuoteDate, new { @class = "form-control" })
+                    <br />
+                    @*@Html.Label("Teklifi Hazırlayan Seçin")
+        @Html.DropDownListFor(x => x.Project.User.UserID, (List<SelectListItem>)ViewBag.ulc, new { @class = "form-control" })
+        <br />*@
+                    @Html.Label("Ödeme Sartı Girin")
+                    @Html.TextBoxFor(x => x.QuotePayment, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-success">Kaydet</button>
+
+                </div>
+            }
+
+

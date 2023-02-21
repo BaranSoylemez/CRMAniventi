@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete
+@model List<Quote>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AniventiLayout.cshtml";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<h3 class="bg bg-secondary">Teklifler</h3>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>PROJE</th>
+        <th>TUTAR</th>
+        <th>TARİH</th>
+        <th>HAZIRLAYAN</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.QuoteID</td>
+            <td>@item.Project.ProjectName</td>
+            <td>@item.QuoteCost @item.QuoteCurrency</td>
+            <td>@item.QuoteDate</td>
+            <td>@item.Project.User.UserName @item.Project.User.UserSurname</td>
+            <td><a href="#" class="nav-icon fas fa-trash"></a>&nbsp;&nbsp;&nbsp;<a href="#" class="fas fa-pen"></a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Quote/AddQuote" class="btn btn-success">Yeni Teklif Hazırla</a>

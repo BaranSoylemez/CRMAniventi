@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Project
+@{
+    ViewBag.Title = "EditProject";
+    Layout = "~/Views/Shared/_AniventiLayout.cshtml";
+}
+
+<h3 class="bg bg-secondary">Proje Güncelle</h3>
+
+@using (Html.BeginForm("EditProject", "Project", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("ID")
+        @Html.TextBoxFor(x => x.ProjectID, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yeni Proje Adı")
+        @Html.TextBoxFor(x => x.ProjectName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Açıklama")
+        @Html.TextBoxFor(x => x.ProjectDesc, new { @class = "form-control" })
+        <br />
+        @Html.Label("Tutar")
+        @Html.TextBoxFor(x => x.ProjectCost, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kur")
+        @Html.TextBoxFor(x => x.ProjectCurrency, new { @class = "form-control" })
+        <br />
+        @Html.Label("Müşteri")
+        @Html.DropDownListFor(x => x.CustomerID, (List<SelectListItem>)ViewBag.clc, new { @class = "form-control" })
+        <br />
+        @Html.Label("Takip Eden")
+        @Html.DropDownListFor(x => x.UserID, (List<SelectListItem>)ViewBag.ulc, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Kaydet</button>&nbsp;&nbsp;&nbsp;<a href="/Quote/AddQuote" class="btn btn-warning">Teklif Oluştur</a>
+    </div>
+}

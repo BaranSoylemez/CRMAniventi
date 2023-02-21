@@ -1,0 +1,31 @@
+﻿@model EntityLayer.Concrete.Customer
+@{
+    ViewBag.Title = "EditCustomer";
+    Layout = "~/Views/Shared/_AniventiLayout.cshtml";
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+
+<h2 class="bg bg-secondary">Müşteri Güncelle</h2>
+<br />
+@using (Html.BeginForm("EditCustomer", "Customer", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("ID")
+        @Html.TextBoxFor(x => x.CustomerID, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yeni Müşteri Adı")
+        @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yeni Müşteri Adresi")
+        @Html.TextBoxFor(x => x.CustomerAddress, new { @class = "form-control" })
+        <br />
+        @Html.Label("İletişim")
+        @Html.TextBoxFor(x => x.CustomerContact, new { @class = "form-control" })
+        <br />
+        @Html.Label("Yeni Müşteri Vergi No")
+        @Html.TextBoxFor(x => x.CustomerTaxNo, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-success">Kaydet</button>
+}
+

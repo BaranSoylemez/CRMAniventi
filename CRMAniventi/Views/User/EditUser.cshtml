@@ -1,0 +1,32 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/_AniventiLayout.cshtml";
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+
+<h2 class="bg bg-secondary">Kullanıcı Güncelle</h2>
+<br />
+@using (Html.BeginForm("EditUser", "User", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Kullanıcı ID")
+        @Html.TextBoxFor(x => x.UserID, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kullanıcı Adı")
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kullanıcı Soyadı")
+        @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kullanıcı Görevi")
+        @Html.TextBoxFor(x => x.UserTitle, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kullanıcı Eposta")
+        @Html.TextBoxFor(x => x.Usermail, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-success">Kaydet</button>
+}
+
